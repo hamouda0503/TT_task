@@ -1,0 +1,74 @@
+{
+    "name": "laravel/laravel",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.5.9",
+        "laravelcollective/html": "5.1.*",
+        
+        "laravel/framework": "5.1.*",
+        "maatwebsite/excel": "~2.1.0",
+        "larasocket/larasocket-driver": "^1.0",
+        "get-stream/stream-chat": "^2.3",
+        "guzzlehttp/guzzle": "^7.3",
+        "spatie/db-dumper": "1.1.0",
+        "league/flysystem": "1.0.8",
+        "symfony/finder": "2.7",
+        "spatie/laravel-backup": "3.0.3",
+        "pusher/pusher-php-server": "dev-master",
+        "graham-campbell/manager": "3.0",
+        "psr/simple-cache": "1.0",
+        "psr/container": "1.0",
+        "consoletvs/charts": "5.*",
+        "maddhatter/laravel-fullcalendar": "^1.3",
+        "djb/confer": "v0.4-alpha",
+        
+        "illuminate/support": "~5.0",
+        "cmgmyr/messenger": "2.16.2",
+        "wladmonax/laravel-db-backup": "^1.1"
+    
+       
+   
+ 
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~4.0",
+        "phpspec/phpspec": "~2.1",
+        "heroku/heroku-buildpack-php": "*"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "php artisan optimize"
+        ],
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "post-install-cmd": [
+        "php artisan clear-compiled",
+        "chmod -R 777 public/"
+    ]
+}
